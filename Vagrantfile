@@ -23,6 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network 'private_network', ip: "192.168.57.152"
   config.vm.network :forwarded_port, guest: 22, host: 9678
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
 
   config.vm.usable_port_range = (10200..10500)
 
