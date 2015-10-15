@@ -17,3 +17,10 @@ password: vagrant
 sshHost: tapioca.dev
 ssh user: vagrant
 ssh key: .vagrant/machines/default/virtualbox/private_key
+
+# Test Mongo
+
+    $ mongo
+    $ use sandbox
+    $ db.stuff.insert( { item: "card", qty: 15 } )
+
