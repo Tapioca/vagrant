@@ -1,0 +1,7 @@
+---
+vagrantfile-local:
+    vm:
+        box: ubuntu/trusty64
+        hostname: tapioca.devbox
+        memory: '2048'
+        htdocs: ../../sandbox/tapioca
