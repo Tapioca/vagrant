@@ -22,6 +22,7 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password_again passwo
 # nginx git mongodb php mysql
 apt-get install -y --force-yes  nginx git mongodb-org redis-server build-essential openssl libssl-dev pkg-config php5-fpm php5-gd php5-common php5-curl php5-mcrypt php5-memcache php5-mysql php5-intl php5-cli php5-mongo php5-redis php-apc mysql-server mysql-client-core-5.5 mysql-client-5.5
 
+# Start mongod
 service mongod start
 
 # Composer
@@ -32,13 +33,17 @@ mv phpunit.phar /usr/bin/phpunit
 php -r "readfile('https://getcomposer.org/installer');" | php
 mv composer.phar /usr/bin/composer
 
+# Add mcrypt
 php5enmod mcrypt
 /etc/init.d/php5-fpm restart
 
+# create DB
 mysql -uroot -proot -e "create database tapioca_dev"
 
-# cd /var/www/tapioca.dev/
-# composer install -n
+# bootstrap app
+cd /var/www/tapioca.dev/
+composer install -n
+php artisan key:generate
 # php artisan migrate --package=cartalyst/sentry
 # php artisan migrate
 # php artisan db:seed
