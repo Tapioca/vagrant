@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder "./provision/sites-enabled/", "/etc/nginx/sites-enabled/", type: 'nfs'
   config.vm.synced_folder "./provision/etc/", "/vagrant/etc/", type: 'nfs'
-  config.vm.synced_folder "#{data['vm']['htdocs']}", "/var/www/tapioca.dev/", type: 'nfs'
+  config.vm.synced_folder "#{data['vm']['htdocs']}", "/var/www/tapioca.dev/", id: "vagrant-id", type: 'nfs'
 
   config.vm.network 'private_network', ip: "192.168.57.152"
   config.vm.network :forwarded_port, guest: 22, host: 9678

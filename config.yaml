@@ -4,4 +4,4 @@ vagrantfile-local:
         box: ubuntu/trusty64
         hostname: tapioca.devbox
         memory: '2048'
-        htdocs: ../../sandbox/tapioca
+        htdocs: /Users/michaellefebvre/www/tapioca

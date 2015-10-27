@@ -1,8 +1,8 @@
 server {
     listen       *:80;
 
-    server_name  tapioca.dev www.tapioca.dev api.tapioca.dev;
-    root         /var/www/tapioca.dev/public;
+    server_name  tapioca.dev www.tapioca.dev api.tapioca.dev app.tapioca.dev admin.tapioca.dev;
+    root         /var/www/tapioca.dev/server.io/public;
 
     access_log   /var/log/nginx/tapioca.dev.access.log;
     error_log    /var/log/nginx/tapioca.dev.error.log;
@@ -18,7 +18,7 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
     location = /robots.txt  { access_log off; log_not_found off; }
 
-    error_page 404 /index.php;
+    #error_page 404 /index.php;
 
     sendfile off;
 
